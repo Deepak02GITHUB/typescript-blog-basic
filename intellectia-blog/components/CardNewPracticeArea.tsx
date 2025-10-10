@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 
 const CardNew = ({ BlogPosts }: any ) => {
-const imageUrl = "http://localhost:1337" + BlogPosts.attributes.PracticeAreaImage.data.attributes.url;
+const imageUrl = "https://strapi-backend-connect.onrender.com" + BlogPosts.attributes.PracticeAreaImage.data.attributes.url;
 const title = BlogPosts.attributes.title;
 const desc = BlogPosts.attributes.Description;
   return (

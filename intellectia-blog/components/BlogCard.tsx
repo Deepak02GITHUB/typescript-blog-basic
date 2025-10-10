@@ -6,7 +6,7 @@ import React from "react";
 const BlogCard = ({ BlogData }: any) => {
     const ID = BlogData.id;
     const { title, ShortDesc, cover } = BlogData.attributes;
-    const imageUrl = "http://localhost:1337" + cover?.data?.attributes?.url;
+    const imageUrl = "https://strapi-backend-connect.onrender.com" + cover?.data?.attributes?.url;
     const imageAlt = cover?.data?.attributes?.alternativeText || title;
     console.log(ID)
     return (

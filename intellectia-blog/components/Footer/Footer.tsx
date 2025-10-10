@@ -49,17 +49,17 @@ const Footer = (): JSX.Element => {
 							<div>
 								<h3 className="text-gray-700 uppercase dark:text-white">Blog</h3>
 								<a
-									href="http://localhost:3000/Blogs/1"
+									href="https://strapi-backend-connect.onrender.com/Blogs/1"
 									className="block mt-2 text-sm text-gray-600 dark:text-gray-400 no-underline hover:no-underline">
 									Blogging journey
 								</a>
 								<a
-									href="http://localhost:3000/Blogs/2"
+									href="https://strapi-backend-connect.onrender.com/Blogs/2"
 									className="block mt-2 text-sm text-gray-600 dark:text-gray-400 no-underline hover:no-underline">
 									Value of Place
 								</a>
 								<a
-									href="http://localhost:3000/Blogs/3"
+									href="https://strapi-backend-connect.onrender.com/Blogs/3"
 									className="block mt-2 text-sm text-gray-600 dark:text-gray-400 no-underline hover:no-underline">
 									FDI Rules in India
 								</a>
@@ -70,17 +70,17 @@ const Footer = (): JSX.Element => {
 									Practices
 								</h3>
 								<a
-									href="http://localhost:3000/Practices/1"
+									href="https://strapi-backend-connect.onrender.com/Practices/1"
 									className="block mt-2 text-sm text-gray-600 dark:text-gray-400 no-underline hover:no-underline">
 									Intellectual Property Protection
 								</a>
 								<a
-									href="http://localhost:3000/Practices/2"
+									href="https://strapi-backend-connect.onrender.com/Practices/2"
 									className="block mt-2 text-sm text-gray-600 dark:text-gray-400 no-underline hover:no-underline">
 									Registration of Agreements
 								</a>
 								<a
-									href="http://localhost:3000/Practices/3"
+									href="https://strapi-backend-connect.onrender.com/Practices/3"
 									className="block mt-2 text-sm text-gray-600 dark:text-gray-400 no-underline hover:no-underline">
 									Contracts
 								</a>
