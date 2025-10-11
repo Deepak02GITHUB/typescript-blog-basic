@@ -7,7 +7,7 @@ export type BlogsType = {
   className?: string;
 };
 async function getStrapiData(url:string){
-  const baseURL="http://localhost:1337";
+  const baseURL="https://strapi-backend-connect.onrender.com";
   try{
     const response = await fetch(baseURL + url,{cache:'no-cache'});
     const data= await response.json();
@@ -22,7 +22,7 @@ const Blogs: NextPage<BlogsType> = async ({ className = "" }) => {
   const strapiData = await getStrapiData("/api/home-page?populate=*");
   const strapiBlogData = await getStrapiData("/api/posts?populate=*");
   const {Title, MissionLine,Logo} = strapiData.data.attributes;
-  const logoURL="http://localhost:1337"+Logo.data.attributes.url
+  const logoURL="https://strapi-backend-connect.onrender.com"+Logo.data.attributes.url
   console.log(strapiBlogData.data.attributes)
   return (
     <>

@@ -21,7 +21,7 @@ export type AboutContainerType = {
 
 };
 async function getStrapiData(url: string) {
-  const baseURL = "http://localhost:1337";
+  const baseURL = "https://strapi-backend-connect.onrender.com";
   try {
     const response = await fetch(baseURL + url, { cache: 'no-cache' });
     const data = await response.json();
@@ -46,7 +46,7 @@ const AboutUs: NextPage<AboutContainerType> = async () => {
   //const {strapiAboutUs}= await getStrapiData("/api/about-us");
   //console.log("hujioj",strapiAboutUs.data.attributes);
   const { Title, MissionLine, desc, Logo, Values} = strapiHomeData.data.attributes;
-  const logoURL="http://localhost:1337"+Logo.data.attributes.url
+  const logoURL="https://strapi-backend-connect.onrender.com"+Logo.data.attributes.url
   /*const teamMember = {
     name: 'John Doe',
     photo: '/frame-16@2x.png', // Make sure to use a valid image path

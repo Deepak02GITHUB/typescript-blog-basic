@@ -41,7 +41,7 @@ interface PageProps {
 }
 
 async function fetchStrapi(path: string, cache: RequestCache = "no-store") {
-  const baseURL = "http://localhost:1337";
+  const baseURL = "https://strapi-backend-connect.onrender.com";
   const res = await fetch(`${baseURL}${path}`, { cache });
   if (!res.ok) throw new Error(`Failed to fetch: ${path}`);
   return res.json();
@@ -64,21 +64,21 @@ export default async function TeamMemberPage({ params }: PageProps) {
     const member: TeamMember = memberData.data[0];
 
     const logoURL = homeData?.data?.attributes?.Logo?.data?.attributes?.url
-      ? `http://localhost:1337${homeData.data.attributes.Logo.data.attributes.url}`
+      ? `https://strapi-backend-connect.onrender.com${homeData.data.attributes.Logo.data.attributes.url}`
       : undefined;
 
     const imageUrl = member.attributes.TeamMemberPhoto?.data?.attributes?.url
-      ? `http://localhost:1337${member.attributes.TeamMemberPhoto.data.attributes.url}`
+      ? `https://strapi-backend-connect.onrender.com${member.attributes.TeamMemberPhoto.data.attributes.url}`
       : "/placeholder.jpg";
 
     const pdfDownloadUrl =
       member.attributes.TeamMemberPdfLink?.data?.[0]?.attributes?.url
-        ? `http://localhost:1337${member.attributes.TeamMemberPdfLink.data[0].attributes.url}`
+        ? `https://strapi-backend-connect.onrender.com${member.attributes.TeamMemberPdfLink.data[0].attributes.url}`
         : undefined;
 
     const docxDownloadUrl =
       member.attributes.TeamMemberDocxLink?.data?.[0]?.attributes?.url
-        ? `http://localhost:1337${member.attributes.TeamMemberDocxLink.data[0].attributes.url}`
+        ? `https://strapi-backend-connect.onrender.com${member.attributes.TeamMemberDocxLink.data[0].attributes.url}`
         : undefined;
 
     return (

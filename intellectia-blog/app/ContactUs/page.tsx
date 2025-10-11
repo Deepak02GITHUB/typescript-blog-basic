@@ -17,7 +17,7 @@
 // };
 
 // async function getStrapiData(url: string) {
-//   const baseURL = "http://localhost:1337";
+//   const baseURL = "https://strapi-backend-connect.onrender.com";
 //   try {
 //     const response = await fetch(baseURL + url, { cache: "no-cache" });
 //     const data = await response.json();
@@ -51,7 +51,7 @@
 //     const fetchData = async () => {
 //       const strapiHomeData = await getStrapiData("/api/home-page?populate=*");
 //       const { Logo } = strapiHomeData.data.attributes;
-//       setLogoURL("http://localhost:1337" + Logo.data.attributes.url);
+//       setLogoURL("https://strapi-backend-connect.onrender.com" + Logo.data.attributes.url);
 //     };
 //     fetchData();
 //   }, []);
@@ -308,7 +308,7 @@ export type ContactContainerType = {
 };
 
 async function getStrapiData(url: string) {
-  const baseURL = "http://localhost:1337";
+  const baseURL = "https://strapi-backend-connect.onrender.com";
   try {
     const response = await fetch(baseURL + url, { cache: "no-cache" });
     const data = await response.json();
@@ -342,7 +342,7 @@ const ContactUs: NextPage<ContactContainerType> = () => {
     const fetchData = async () => {
       const strapiHomeData = await getStrapiData("/api/home-page?populate=*");
       const { Logo } = strapiHomeData.data.attributes;
-      setLogoURL("http://localhost:1337" + Logo.data.attributes.url);
+      setLogoURL("https://strapi-backend-connect.onrender.com" + Logo.data.attributes.url);
     };
     fetchData();
   }, []);

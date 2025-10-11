@@ -24,7 +24,7 @@
 //       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-6 p-6">
 //         {teamMembers.map((member) => {
 //           const imageUrl = member.attributes.TeamMemberPhoto?.data?.attributes?.url
-//             ? `http://localhost:1337${member.attributes.TeamMemberPhoto.data.attributes.url}`
+//             ? `https://strapi-backend-connect.onrender.com${member.attributes.TeamMemberPhoto.data.attributes.url}`
 //             : "/placeholder.jpg";
 
 //           return (
@@ -96,7 +96,7 @@ const TeamList: React.FC<TeamListProps> = ({ teamMembers }) => {
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-6 p-6">
         {currentMembers.map((member) => {
           const imageUrl = member.attributes.TeamMemberPhoto?.data?.attributes?.url
-            ? `http://localhost:1337${member.attributes.TeamMemberPhoto.data.attributes.url}`
+            ? `https://strapi-backend-connect.onrender.com${member.attributes.TeamMemberPhoto.data.attributes.url}`
             : "/placeholder.jpg";
 
           return (

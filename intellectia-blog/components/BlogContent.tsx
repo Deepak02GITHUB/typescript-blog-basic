@@ -92,7 +92,7 @@ const Page = async ({ strapiData, blog }: any) => {
   
   const { Title } = strapiData.data.attributes;
   const { title, content, cover } = blog.data.attributes;
-  const imageUrl = "http://localhost:1337" + cover?.data?.attributes?.url;
+  const imageUrl = "https://strapi-backend-connect.onrender.com" + cover?.data?.attributes?.url;
 
   return (
     <>

@@ -16,7 +16,7 @@
 // import CollapsibleDropdown from "@/components/CollpasibleDropdown";
 
 // async function getStrapiData(url:string){
-//   const baseURL="http://localhost:1337";
+//   const baseURL="https://strapi-backend-connect.onrender.com";
 //   try{
 //     const response = await fetch(baseURL + url,{cache:'no-cache'});
 //     const data= await response.json();
@@ -31,7 +31,7 @@
 // const Home: NextPage = async() => {
 
 
-//   const baseURL = "http://localhost:1337";
+//   const baseURL = "https://strapi-backend-connect.onrender.com";
 //   const strapiData = await getStrapiData("/api/home-page?populate=*");
 //   const strapiBlogData = await getStrapiData("/api/posts?populate=*");
 //   const strapiBlogData1 = await getStrapiData("/api/posts/1?populate=*");
@@ -217,7 +217,7 @@ import CarouselNew from "@/components/CarouselNew";
 
 // ✅ Improved fetch wrapper
 async function getStrapiData(url: string) {
-  const baseURL = "http://localhost:1337";
+  const baseURL = "https://strapi-backend-connect.onrender.com";
   try {
     const response = await fetch(baseURL + url, { cache: "no-cache" });
 
@@ -234,7 +234,7 @@ async function getStrapiData(url: string) {
 }
 
 const Home: NextPage = async () => {
-  const baseURL = "http://localhost:1337";
+  const baseURL = "https://strapi-backend-connect.onrender.com";
 
   // ✅ Fetch data
   const strapiHomeData = await getStrapiData("/api/home-page?populate=*");
