@@ -1,13 +1,16 @@
+// File: app/Sectors/page.tsx
 import { NextPage } from "next";
 
-export type SectorContainerType={
-    className?:string;
+const SectorsPage: NextPage = () => {
+  return (
+    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-8">
+      <h1 className="text-4xl font-bold mb-4 text-gray-800">Sectors</h1>
+      <p className="text-lg text-gray-600 text-center max-w-2xl">
+        Explore the different sectors we work with and how we provide solutions
+        tailored for each industry.
+      </p>
+    </div>
+  );
 };
 
-const Sectors: NextPage<SectorContainerType>= async()=>{
-    return(
-        <h1>Hi</h1>
-    )
-}
-
-export default Sectors;
+export default SectorsPage;

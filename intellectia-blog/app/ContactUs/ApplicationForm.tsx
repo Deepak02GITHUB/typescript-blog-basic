@@ -581,7 +581,7 @@ export default function ApplicationForm({ onClose }: ApplicationFormProps) {
                 <>
                   <p className="mb-2 text-gray-500">Choose a file or drag & drop it here.</p>
                   <p className="mb-4 text-gray-500">pdf, doc, docx, – Up to 5MB</p>
-                  <p className="mb-4 text-gray-500">Please ensure your uploaded resume is named using the format: "YourName_Resume.pdf"</p>
+                  <p className="mb-4 text-gray-500">{`Please ensure your uploaded resume is named using the format: "YourName_Resume.pdf"`}</p>
                  {error && (
                     <p className="mb-4 text-red-600 text-2xl">{error}</p>
                   )}

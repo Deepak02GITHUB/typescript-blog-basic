@@ -5,6 +5,7 @@ import Nav from "@/components/nav";
 import Footer from "@/components/Footer/Footer";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { faArrowLeft, faCheckCircle, faUsers, faGavel, faShieldAlt, faBuilding, faHandshake } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 
@@ -294,7 +295,7 @@ export default function PracticeAreaDetail() {
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                     className="flex items-center space-x-2 sm:space-x-3 p-3 sm:p-4 bg-white rounded-lg shadow-sm border hover:shadow-md transition-shadow duration-200"
                   >
-                    <FontAwesomeIcon icon={faCheckCircle} className="text-green-500 text-base sm:text-lg flex-shrink-0" />
+                    <FontAwesomeIcon icon={faCheckCircle as IconProp} className="text-green-500 text-base sm:text-lg flex-shrink-0" />
                     <span className="text-gray-700 font-medium text-sm sm:text-base">{service}</span>
                   </motion.div>
                 ))}
@@ -355,19 +356,19 @@ export default function PracticeAreaDetail() {
                 <h4 className="text-lg sm:text-xl font-semibold text-gray-800 mb-3 sm:mb-4">Why Choose Us</h4>
                 <ul className="space-y-2 sm:space-y-3">
                   <li className="flex items-start space-x-2 sm:space-x-3">
-                    <FontAwesomeIcon icon={faCheckCircle} className="text-blue-500 text-xs sm:text-sm mt-1 flex-shrink-0" />
+                    <FontAwesomeIcon icon={faCheckCircle as IconProp} className="text-blue-500 text-xs sm:text-sm mt-1 flex-shrink-0" />
                     <span className="text-gray-600 text-xs sm:text-sm">25+ years of legal experience</span>
                   </li>
                   <li className="flex items-start space-x-2 sm:space-x-3">
-                    <FontAwesomeIcon icon={faCheckCircle} className="text-blue-500 text-xs sm:text-sm mt-1 flex-shrink-0" />
+                    <FontAwesomeIcon icon={faCheckCircle as IconProp} className="text-blue-500 text-xs sm:text-sm mt-1 flex-shrink-0" />
                     <span className="text-gray-600 text-xs sm:text-sm">Proven track record of success</span>
                   </li>
                   <li className="flex items-start space-x-2 sm:space-x-3">
-                    <FontAwesomeIcon icon={faCheckCircle} className="text-blue-500 text-xs sm:text-sm mt-1 flex-shrink-0" />
+                    <FontAwesomeIcon icon={faCheckCircle as IconProp} className="text-blue-500 text-xs sm:text-sm mt-1 flex-shrink-0" />
                     <span className="text-gray-600 text-xs sm:text-sm">Personalized approach to each case</span>
                   </li>
                   <li className="flex items-start space-x-2 sm:space-x-3">
-                    <FontAwesomeIcon icon={faCheckCircle} className="text-blue-500 text-xs sm:text-sm mt-1 flex-shrink-0" />
+                    <FontAwesomeIcon icon={faCheckCircle as IconProp} className="text-blue-500 text-xs sm:text-sm mt-1 flex-shrink-0" />
                     <span className="text-gray-600 text-xs sm:text-sm">24/7 availability for urgent matters</span>
                   </li>
                 </ul>

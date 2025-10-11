@@ -214,6 +214,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocation } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import CarouselNew from "@/components/CarouselNew";
+import type { IconProp } from "@fortawesome/fontawesome-svg-core";
+
 
 // ✅ Improved fetch wrapper
 async function getStrapiData(url: string) {
@@ -288,10 +290,7 @@ const Home: NextPage = async () => {
         >
           <div className="group bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-3 py-2  no-underline sm:px-5 sm:py-3 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer flex items-center space-x-1.5 sm:space-x-2.5 min-w-[120px] sm:min-w-[160px]">
             <div className="bg-white/20 p-1 sm:p-1.5 rounded-full  group-hover:bg-white/30 transition-colors duration-300">
-              <FontAwesomeIcon
-                icon={faLocation}
-                className="text-white text-sm sm:text-base group-hover:animate-pulse"
-              />
+              <FontAwesomeIcon icon={faLocation as IconProp} className="text-white text-sm sm:text-base group-hover:animate-pulse" />
             </div>
             <div className="flex flex-col">
               <span className="font-semibold no-underline text-xs sm:text-sm uppercase tracking-wide">
