@@ -18,7 +18,8 @@ module.exports = [
     config: {
       enabled: true,
       origin: [
-        'https://typescript-blog.vercel.app', // your frontend domain
+        'https://typescript-blog.vercel.app',
+        'http://localhost:3000',  // your frontend domain
       ],
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
       headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
