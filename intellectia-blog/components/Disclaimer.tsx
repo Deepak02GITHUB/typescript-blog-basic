@@ -2,12 +2,14 @@
 import { useState, useEffect, useRef } from 'react';
 import type { NextPage } from "next";
 // MUI
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
+
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import Button from '@mui/material/Button';
+import DialogTitle from '@mui/material/DialogTitle';
+
 
 
 export type DisclaimerType = {
@@ -51,12 +53,17 @@ const Disclaimer:NextPage<DisclaimerType> =({disclaimer}) => {
   }
   return <Dialog
     open={open}
-    onClose={handleClose}
+   onClose={(event, reason) => {
+    // Prevent closing on backdrop click or escape key
+    if (reason !== "backdropClick" && reason !== "escapeKeyDown") {
+      handleClose();
+    }
+  }}
     scroll='paper'
     aria-labelledby="scroll-dialog-title"
     aria-describedby="scroll-dialog-description"
-    disableBackdropClick
-    disableEscapeKeyDown
+    // disableBackdropClick
+    // disableEscapeKeyDown
     maxWidth='lg'
   >
     <DialogTitle id="scroll-dialog-title">DISCLAIMER AND CONSENT</DialogTitle>
