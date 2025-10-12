@@ -507,7 +507,7 @@ const ContactUs = () => {
         </div>
       </div>
 
-      <div className="relative flex flex-col md:flex-col lg:flex-row bg-white rounded-sm p-6 md:p-12 gap-8">
+      <div className="relative flex flex-col md:flex-col lg:flex-row bg-white font-dm-sans rounded-sm p-6 md:p-12 gap-8">
         {/* Contact Info */}
         <div className="lg:w-2/5 bg-white ml-1 p-6 rounded-md border border-gray-200">
           <h2 className="text-xl font-semibold mb-4 text-[#b43a2f]">Contact Info</h2>
@@ -539,7 +539,7 @@ const ContactUs = () => {
         </div>
 
         {/* Form */}
-        <div className="ml-3 md:ml-10 mt-0 md:-mt-56 md:w-2.5/5 bg-gray-50 p-6 md:p-14 rounded-sm shadow-md">
+        <div className="ml-3 md:ml-10 mt-0 md:-mt-56 md:w-2.5/5 bg-gray-50 p-6 md:p-14 rounded-sm shadow-md font-dm-sans">
           <div className="text-center mb-8">
             <h2 className="text-xl md:text-4xl font-semibold text-[#0a4d6e] mb-2">
               Your Goals, Our Mission &ndash; Let{`'`}s Connect
