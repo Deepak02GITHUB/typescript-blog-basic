@@ -496,7 +496,7 @@ const ContactUs = () => {
         </div>
       )}
 
-      <div className="relative mb-108">
+      <div className="relative mb-108 font-dm-sans">
         <div className="bg-gray-800 text-black py-28 px-7 md:px-5">
           <div className="md:px-20">
             <p className="text-3xl md:text-17xl font-semibold text-white pt-10 mb-3">
