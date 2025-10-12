@@ -287,78 +287,170 @@
 // export default AboutUs;
 
 
-import type { NextPage } from "next";
-import Link from "next/link";
+// import type { NextPage } from "next";
+// import Link from "next/link";
 
+// import Nav from "@/components/nav";
+// import Vision from "@/components/Vision";
+// import Mission from "@/components/mission";
+// import Divider from "@/components/divider";
+// import TeamList from "@/components/TeamList";
+// import Footer from "@/components/Footer/Footer";
+
+// async function getStrapiData(url: string) {
+//   const baseURL = "https://strapi-backend-connect.onrender.com";
+//   try {
+//     const response = await fetch(baseURL + url, { cache: "no-cache" });
+//     const data = await response.json();
+//     return data;
+//   } catch (error) {
+//     console.error(error);
+//     return null;
+//   }
+// }
+
+// const AboutUs: NextPage = async () => {
+//   const strapiHomeData = await getStrapiData("/api/home-page?populate=*");
+//   const TeamData = await getStrapiData("/api/team-members?populate=*");
+
+//   if (!strapiHomeData || !TeamData) return <div>Loading...</div>;
+
+//   const { desc, Logo } = strapiHomeData.data.attributes;
+//   const logoURL = "https://strapi-backend-connect.onrender.com" + Logo.data.attributes.url;
+
+//   return (
+//     <>
+//       <Nav logoURL={logoURL} />
+
+//       <div className="dark:bg-gray-800 flex flex-col lg:flex-row py-8 sm:py-10 lg:py-16 px-4 sm:px-6 lg:px-8 xl:px-20">
+//         <div className="flex items-center justify-center w-full lg:w-1/2 h-64 sm:h-80 lg:h-96 mb-6 lg:mb-0 lg:pr-8">
+//           <img
+//             className="object-cover w-full h-full max-w-2xl rounded-lg shadow-lg"
+//             src="/images/why-us.jpeg"
+//             alt="Intellectia"
+//           />
+//         </div>
+//         <div className="w-full lg:w-1/2 lg:pl-8">
+//           <div className="max-w-lg mx-auto lg:mx-0 mt-4">
+//             <h2 className="text-2xl sm:text-3xl lg:text-4xl text-white font-dm-sans text-center lg:text-left">
+//               Who We <span className="text-indigo-400">Are</span>
+//             </h2>
+//             <pre className="mt-4 text-sm sm:text-base text-gray-600 dark:text-gray-400 text-justify whitespace-pre-wrap">
+//               {desc}
+//             </pre>
+
+//             <div className="mt-6 text-center lg:text-left">
+//               <Link href="/ContactUs" legacyBehavior passHref>
+//                 <button className="font-semibold text-gray-300 transition-colors duration-200 transform cursor-pointer rounded-md hover:bg-gray-700 bg-gray-800 px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base">
+//                   Get In Touch
+//                 </button>
+//               </Link>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+
+//       <Vision />
+//       <Divider />
+//       <Mission missionLine={desc} />
+
+//       <div className="bg-gray-100 px-20 py-10 mx-auto space-y-6 md:flex md:flex-row md:items-center md:space-x-6">
+//         <div className="text-center w-full">
+//           <h2 className="text-5xl text-gray-800 font-dm-sans">Our Team</h2>
+//           <TeamList teamMembers={TeamData?.data || []} />
+//         </div>
+//       </div>
+
+//       <Footer />
+//     </>
+//   );
+// };
+
+// export default AboutUs;
 import Nav from "@/components/nav";
 import Vision from "@/components/Vision";
 import Mission from "@/components/mission";
 import Divider from "@/components/divider";
-import TeamList from "@/components/TeamList";
 import Footer from "@/components/Footer/Footer";
+import TeamList from "@/components/TeamList";
+import Link from "next/link";
 
+// Safe fetch wrapper
 async function getStrapiData(url: string) {
-  const baseURL = "https://strapi-backend-connect.onrender.com";
   try {
-    const response = await fetch(baseURL + url, { cache: "no-cache" });
-    const data = await response.json();
+    const res = await fetch("https://strapi-backend-connect.onrender.com" + url, { cache: "no-cache" });
+    if (!res.ok) return null;
+    const data = await res.json();
     return data;
-  } catch (error) {
-    console.error(error);
+  } catch (err) {
+    console.error("Strapi fetch error:", err);
     return null;
   }
 }
 
-const AboutUs: NextPage = async () => {
+const AboutUs = async () => {
+  // Fetch home and team data
   const strapiHomeData = await getStrapiData("/api/home-page?populate=*");
-  const TeamData = await getStrapiData("/api/team-members?populate=*");
+  const strapiTeamData = await getStrapiData("/api/team-members?populate=*");
 
-  if (!strapiHomeData || !TeamData) return <div>Loading...</div>;
+  // Safe destructuring with defaults
+  const homeAttrs = strapiHomeData?.data?.attributes || {};
+  const { Title = "About Us", desc = "Description coming soon...", Logo = null, MissionLine = "" } = homeAttrs;
 
-  const { desc, Logo } = strapiHomeData.data.attributes;
-  const logoURL = "https://strapi-backend-connect.onrender.com" + Logo.data.attributes.url;
+  const logoURL = Logo?.data?.attributes?.url
+    ? "https://strapi-backend-connect.onrender.com" + Logo.data.attributes.url
+    : "/images/default-logo.png";
+
+  const teamMembers = strapiTeamData?.data || [];
 
   return (
     <>
       <Nav logoURL={logoURL} />
 
-      <div className="dark:bg-gray-800 flex flex-col lg:flex-row py-8 sm:py-10 lg:py-16 px-4 sm:px-6 lg:px-8 xl:px-20">
-        <div className="flex items-center justify-center w-full lg:w-1/2 h-64 sm:h-80 lg:h-96 mb-6 lg:mb-0 lg:pr-8">
+      {/* Hero Section */}
+      <div className="flex flex-col lg:flex-row py-8 px-4 sm:px-6 lg:px-8 xl:px-20 bg-gray-800">
+        <div className="w-full lg:w-1/2 mb-6 lg:mb-0 flex justify-center items-center">
           <img
-            className="object-cover w-full h-full max-w-2xl rounded-lg shadow-lg"
             src="/images/why-us.jpeg"
-            alt="Intellectia"
+            alt="About Us"
+            className="object-cover w-full max-w-2xl rounded-lg shadow-lg"
           />
         </div>
         <div className="w-full lg:w-1/2 lg:pl-8">
-          <div className="max-w-lg mx-auto lg:mx-0 mt-4">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl text-white font-dm-sans text-center lg:text-left">
-              Who We <span className="text-indigo-400">Are</span>
-            </h2>
-            <pre className="mt-4 text-sm sm:text-base text-gray-600 dark:text-gray-400 text-justify whitespace-pre-wrap">
-              {desc}
-            </pre>
-
-            <div className="mt-6 text-center lg:text-left">
-              <Link href="/ContactUs" legacyBehavior passHref>
-                <button className="font-semibold text-gray-300 transition-colors duration-200 transform cursor-pointer rounded-md hover:bg-gray-700 bg-gray-800 px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base">
-                  Get In Touch
-                </button>
-              </Link>
-            </div>
+          <h2 className="text-4xl sm:text-5xl text-white font-bold mb-4">
+            Who We <span className="text-indigo-400">Are</span>
+          </h2>
+          <p className="text-gray-300 text-justify">{desc}</p>
+          <div className="mt-6">
+            <Link href="/ContactUs">
+              <button className="bg-gray-800 hover:bg-gray-700 text-gray-300 px-6 py-3 rounded-md font-semibold">
+                Get In Touch
+              </button>
+            </Link>
           </div>
         </div>
       </div>
 
       <Vision />
       <Divider />
-      <Mission missionLine={desc} />
 
-      <div className="bg-gray-100 px-20 py-10 mx-auto space-y-6 md:flex md:flex-row md:items-center md:space-x-6">
-        <div className="text-center w-full">
-          <h2 className="text-5xl text-gray-800 font-dm-sans">Our Team</h2>
-          <TeamList teamMembers={TeamData?.data || []} />
-        </div>
+      {/* Our Values */}
+      <div className="py-16 px-4 sm:px-6 lg:px-8 xl:px-20 bg-white text-center">
+        <h2 className="text-5xl font-bold text-gray-800 mb-8">Our Values</h2>
+        <p className="text-gray-600 max-w-4xl mx-auto leading-relaxed text-justify">
+          Driven by hunger for intellectual stimulation, we constantly research ideas, conduct qualitative and quantitative analysis, 
+          and apply complex frameworks to solve difficult problems. We aim to help people and businesses succeed while acting as strategic partners.
+        </p>
+      </div>
+
+      {/* Our Team */}
+      <div className="py-16 px-4 sm:px-6 lg:px-8 xl:px-20 bg-gray-100 text-center">
+        <h2 className="text-5xl font-bold text-gray-800 mb-8">Our Team</h2>
+        {teamMembers.length ? (
+          <TeamList teamMembers={teamMembers} />
+        ) : (
+          <p className="text-gray-600">Team information is currently unavailable.</p>
+        )}
       </div>
 
       <Footer />
