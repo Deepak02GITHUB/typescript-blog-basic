@@ -449,18 +449,28 @@ const AboutUs = async () => {
       </h2>
     <div className='max-w-4xl mx-auto text-center  px-6 md:px-6 font-dm-sans mdN'>
       <p className="mt-4 text-sm sm:text-base text-gray-600 dark:text-gray-400 text-justify leading-relaxed">
-        Driven by hunger for intellectual stimulation, we are constantly involved in researching ideas, conducting qualitative and quantitative analysis and applying complex frameworks to solve knotty problems. Our primary goal is to help people and their businesses. We built trust because of our will to help our clients accomplish their goals. Our role is to assist organization in critical areas of their inclusiveness work. We act as an educator, a catalyst for deeper change, a resource or a facilitator, the leadership of the process remains within your organization. We act as an extension of in-house legal cell or as independent legal consultants. Our efforts are towards being strategic partners for our clients growth and not just be a consulting firm.
+        {`Driven by hunger for intellectual stimulation, we are constantly involved in researching ideas, conducting
+        qualitative and quantitative analysis and applying complex frameworks to solve knotty problems. Our primary
+        goal is to help people and their businesses. We built trust because of our will to help our clients
+        accomplish their goals. Our role is to assist organization in critical areas of their inclusiveness work. 
+        We act as an educator, a catalyst for deeper change, a resource or a facilitator, the leadership of the 
+        process remains within your organization. We act as an extension of in-house legal cell or as independent 
+        legal consultants. Our efforts are towards being strategic partners for our clients growth and not just be a
+        consulting firm.`}
           </p>
 
       <p className="mt-4 text-sm sm:text-base text-gray-600 dark:text-gray-400 text-justify leading-relaxed">
-        Our Associates have a successful track record of representing companies and individuals before domestic courts and arbitration tribunals. Although, our Associates have been collaborating on various matters since a fairly long time, the firm was formed recently in order to serve a larger platform for new clients and associates.
+       {` Our Associates have a successful track record of representing companies and individuals before domestic courts
+        and arbitration tribunals. Although, our Associates have been collaborating on various matters since a fairly 
+        long time, the firm was formed recently in order to serve a larger platform for new clients and associates.`}
 
           </p>
       <p className="mt-4 text-sm sm:text-base text-gray-600 dark:text-gray-400 text-justify leading-relaxed">
-        We focus on addressing industry wise Management & Legal Consultancy services. Our priority is to safeguard our client's interests and ensure that personal or professional association of any Associate does not involve a conflict of interest.
+        {`We focus on addressing industry wise Management & Legal Consultancy services. Our priority is to safeguard our client's interests and ensure that personal or professional association of any Associate does not involve a conflict of interest.`}
           </p>
       <p className="mt-4 text-sm sm:text-base text-gray-600 dark:text-gray-400 text-justify leading-relaxed">
-        We are a socially responsible firm and undertake pro-bono work to support several philanthropic organizations, NGOs and government initiatives related to social justice, child-care and education.
+       {` We are a socially responsible firm and undertake pro-bono work to support several philanthropic organizations
+        , NGOs and government initiatives related to social justice, child-care and education.`}
           </p>
     </div>
   </div>
