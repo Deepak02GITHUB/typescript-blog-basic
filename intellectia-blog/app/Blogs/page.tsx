@@ -7,7 +7,7 @@
 //   className?: string;
 // };
 // async function getStrapiData(url:string){
-//   const baseURL="https://strapi-backend-connect.onrender.com";
+//   const baseURL="http://localhost:1337";
 //   try{
 //     const response = await fetch(baseURL + url,{cache:'no-cache'});
 //     const data= await response.json();
@@ -22,7 +22,7 @@
 //   const strapiData = await getStrapiData("/api/home-page?populate=*");
 //   const strapiBlogData = await getStrapiData("/api/posts?populate=*");
 //   const {Title, MissionLine,Logo} = strapiData.data.attributes;
-//   const logoURL="https://strapi-backend-connect.onrender.com"+Logo.data.attributes.url
+//   const logoURL="http://localhost:1337"+Logo.data.attributes.url
 //   console.log(strapiBlogData.data.attributes)
 //   return (
 //     <>
@@ -51,35 +51,24 @@
 // };
 
 // export default Blogs;
-
 import BlogFrontend from "@/components/BlogFrontend";
 import Footer from "@/components/Footer/Footer";
 import Nav from "@/components/nav";
 import type { NextPage } from "next";
+// import { getStrapiMedia } from "@/lib/media";
 
 async function getStrapiData(url: string) {
-  const baseURL = "https://strapi-backend-connect.onrender.com";
-  try {
-    const response = await fetch(baseURL + url, { cache: 'no-cache' });
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error(error);
-  }
+  const baseURL = "http://localhost:1337";
+  const response = await fetch(baseURL + url, { cache: "no-cache" });
+  return await response.json();
 }
 
 const Blogs: NextPage = async () => {
-  const strapiData = await getStrapiData("/api/home-page?populate=*");
   const strapiBlogData = await getStrapiData("/api/posts?populate=*");
-
-  const { Title, MissionLine, Logo } = strapiData.data.attributes;
-  const logoURL = "https://strapi-backend-connect.onrender.com" + Logo.data.attributes.url;
-
-  console.log(strapiBlogData.data.attributes);
 
   return (
     <>
-      <Nav logoURL={logoURL} />
+      <Nav />
 
       {/* Page Header */}
       <div className="bg-gradient-to-r from-blue-50 to-indigo-100 py-8 sm:py-12 lg:py-16">

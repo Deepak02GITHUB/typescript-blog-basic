@@ -15,7 +15,7 @@
 //   };
 
 //     async function getStrapiData(url: string) {
-//         const baseURL = "https://strapi-backend-connect.onrender.com";
+//         const baseURL = "http://localhost:1337";
 //         try {
 //           const response = await fetch(baseURL + url, { cache: 'no-cache' });
 //           const data = await response.json();
@@ -33,7 +33,7 @@
 //   //const {strapiAboutUs}= await getStrapiData("/api/about-us");
 //   console.log("hujioj",strapiFAQs.data );
 //   const { Title, MissionLine, desc,Logo} = strapiHomeData.data.attributes;
-//   const logoURL="https://strapi-backend-connect.onrender.com"+Logo.data.attributes.url
+//   const logoURL="http://localhost:1337"+Logo.data.attributes.url
 
 //     return (  
 //         <>
@@ -71,7 +71,7 @@ import { NextPage } from "next";
 
 export const dynamic = 'force-dynamic';
 
-const STRAPI_BASE = "https://strapi-backend-connect.onrender.com";
+const STRAPI_BASE = "http://localhost:1337";
 
 // ✅ Safe fetch helper
 async function getStrapiData(endpoint: string) {
@@ -109,7 +109,7 @@ const Practice: NextPage = async () => {
 
   return (
     <>
-      <Nav logoURL={logoURL} />
+      <Nav/>
 
       <div className="flex flex-wrap justify-center gap-6 p-4 sm:px-20">
         {practiceAreas.length > 0 ? (
@@ -123,7 +123,7 @@ const Practice: NextPage = async () => {
         )}
       </div>
 
-      <div className="px-4 sm:px-20 mt-10">
+      <div className="py-10 px-4 sm:px-20 mt-10">
         <div className="max-w-2xl mx-auto faqcss dark:bg-gray-800 p-4 sm:p-6 rounded-lg">
           <h1 className="text-2xl font-bold mb-4 text-gray-700 dark:text-white li-bulletremove">
             FAQs

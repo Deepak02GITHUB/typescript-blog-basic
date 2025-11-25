@@ -20,7 +20,7 @@ const Disclaimer:NextPage<DisclaimerType> =({disclaimer}) => {
 
 
   const [open, setOpen] = useState<boolean>(false);
-  //const baseURL = "https://strapi-backend-connect.onrender.com";
+  //const baseURL = "http://localhost:1337";
 
   useEffect(() => {
     const accepted = localStorage.getItem('disclaimer-accepted')

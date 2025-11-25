@@ -8,7 +8,7 @@
 //       };
 
 // const CustomCarousel : NextPage<CustomCarousel> = ({ id }) => {
-//     const imageURL="https://strapi-backend-connect.onrender.com"+id.attributes.url;
+//     const imageURL="http://localhost:1337"+id.attributes.url;
 // return(
     
 //         <div>
@@ -26,7 +26,11 @@ export type CustomCarouselProps = {
 };
 
 const CustomCarousel: NextPage<CustomCarouselProps> = ({ id }) => {
-  const imageURL = "https://strapi-backend-connect.onrender.com" + id.attributes.url;
+  // const imageURL = "http://localhost:1337" + id.attributes.url;
+  const imageURL = id?.attributes?.url?.startsWith("http")
+  ? id.attributes.url
+  : "http://localhost:1337" + id.attributes.url;
+
 
   return (
     <div>

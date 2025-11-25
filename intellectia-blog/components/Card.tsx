@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Card = ({ teamMember }: any  ) => {
-    const imageUrl = "https://strapi-backend-connect.onrender.com" + teamMember.attributes.TeamMemberPhoto.data.attributes.url;
+    const imageUrl = "http://localhost:1337" + teamMember.attributes.TeamMemberPhoto.data.attributes.url;
     return (
         <div className="card">
             <img src={imageUrl} alt={`${teamMember.attributes.name}'s photo`} className="card-photo" />

@@ -12,7 +12,7 @@ import SlidingToggleButtons from "@/app/ContactUs/Careers/SlideToggleButtons";
 import Link from 'next/link';
 
 async function getStrapiData(url: string) {
-  const baseURL = "https://strapi-backend-connect.onrender.com";
+  const baseURL = "http://localhost:1337";
   try {
     const response = await fetch(baseURL + url, { cache: "no-cache" });
     const data = await response.json();
@@ -23,7 +23,7 @@ async function getStrapiData(url: string) {
 }
 
 export default function CareersHero() {
-  const [logoURL, setLogoURL] = useState("");
+  // const [logoURL, setLogoURL] = useState("");
   const [scrollProgress, setScrollProgress] = useState(0);
   const firstSectionRef = useRef<HTMLElement>(null);
   const footerRef = useRef<HTMLElement>(null);
@@ -34,23 +34,23 @@ export default function CareersHero() {
   //   const fetchData = async () => {
   //     const strapiHomeData = await getStrapiData("/api/home-page?populate=*");
   //     const { Logo } = strapiHomeData.data.attributes;
-  //     setLogoURL("https://strapi-backend-connect.onrender.com" + Logo.data.attributes.url);
+  //     setLogoURL("http://localhost:1337" + Logo.data.attributes.url);
   //   };
   //   fetchData();
   // }, []);
 
-  useEffect(() => {
-  const fetchData = async () => {
-    const strapiHomeData = await getStrapiData("/api/home-page?populate=*");
-    const { Logo } = strapiHomeData.data.attributes;
-    const logo = "https://strapi-backend-connect.onrender.com" + Logo.data.attributes.url;
+//   useEffect(() => {
+//   const fetchData = async () => {
+//     const strapiHomeData = await getStrapiData("/api/home-page?populate=*");
+//     const { Logo } = strapiHomeData.data.attributes;
+//     const logo = "http://localhost:1337" + Logo.data.attributes.url;
 
-    const img = new Image();
-    img.src = logo;
-    img.onload = () => setLogoURL(logo);
-  };
-  fetchData();
-}, []);
+//     const img = new Image();
+//     img.src = logo;
+//     img.onload = () => setLogoURL(logo);
+//   };
+//   fetchData();
+// }, []);
 
 
   useEffect(() => {
@@ -94,7 +94,7 @@ export default function CareersHero() {
     <div>
 
        <section>
-        <Nav logoURL={logoURL} />
+        <Nav/>
        </section>
       
       <section ref={firstSectionRef} className="bg-gray-800 relative w-full h-[76vh] md:h-[70vh] lg:h-[75vh]">

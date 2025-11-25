@@ -40,8 +40,16 @@ interface PageProps {
   params: { slug: string };
 }
 
+function getMediaUrl(rawUrl?: string) {
+  if (!rawUrl) return undefined;
+  return rawUrl.startsWith("http")
+    ? rawUrl // Cloudinary
+    : `http://localhost:1337${rawUrl}`; // Local files
+}
+
+
 async function fetchStrapi(path: string, cache: RequestCache = "no-store") {
-  const baseURL = "https://strapi-backend-connect.onrender.com";
+  const baseURL = "http://localhost:1337";
   const res = await fetch(`${baseURL}${path}`, { cache });
   if (!res.ok) throw new Error(`Failed to fetch: ${path}`);
   return res.json();
@@ -63,27 +71,48 @@ export default async function TeamMemberPage({ params }: PageProps) {
 
     const member: TeamMember = memberData.data[0];
 
-    const logoURL = homeData?.data?.attributes?.Logo?.data?.attributes?.url
-      ? `https://strapi-backend-connect.onrender.com${homeData.data.attributes.Logo.data.attributes.url}`
-      : undefined;
+    // const logoURL = homeData?.data?.attributes?.Logo?.data?.attributes?.url
+    //   ? `http://localhost:1337${homeData.data.attributes.Logo.data.attributes.url}`
+    //   : undefined;
 
-    const imageUrl = member.attributes.TeamMemberPhoto?.data?.attributes?.url
-      ? `https://strapi-backend-connect.onrender.com${member.attributes.TeamMemberPhoto.data.attributes.url}`
-      : "/placeholder.jpg";
+    // const imageUrl = member.attributes.TeamMemberPhoto?.data?.attributes?.url
+    //   ? `http://localhost:1337${member.attributes.TeamMemberPhoto.data.attributes.url}`
+    //   : "/placeholder.jpg";
 
-    const pdfDownloadUrl =
-      member.attributes.TeamMemberPdfLink?.data?.[0]?.attributes?.url
-        ? `https://strapi-backend-connect.onrender.com${member.attributes.TeamMemberPdfLink.data[0].attributes.url}`
-        : undefined;
+    // const pdfDownloadUrl =
+    //   member.attributes.TeamMemberPdfLink?.data?.[0]?.attributes?.url
+    //     ? `http://localhost:1337${member.attributes.TeamMemberPdfLink.data[0].attributes.url}`
+    //     : undefined;
 
-    const docxDownloadUrl =
-      member.attributes.TeamMemberDocxLink?.data?.[0]?.attributes?.url
-        ? `https://strapi-backend-connect.onrender.com${member.attributes.TeamMemberDocxLink.data[0].attributes.url}`
-        : undefined;
+    // const docxDownloadUrl =
+    //   member.attributes.TeamMemberDocxLink?.data?.[0]?.attributes?.url
+    //     ? `http://localhost:1337${member.attributes.TeamMemberDocxLink.data[0].attributes.url}`
+    //     : undefined;
+
+    // Logo
+const logoURL = getMediaUrl(
+  homeData?.data?.attributes?.Logo?.data?.attributes?.url
+);
+
+// Member Image
+const imageUrl = getMediaUrl(
+  member.attributes.TeamMemberPhoto?.data?.attributes?.url
+) || "/placeholder.jpg";
+
+// PDF
+const pdfDownloadUrl = getMediaUrl(
+  member.attributes.TeamMemberPdfLink?.data?.[0]?.attributes?.url
+);
+
+// DOCX
+const docxDownloadUrl = getMediaUrl(
+  member.attributes.TeamMemberDocxLink?.data?.[0]?.attributes?.url
+);
+
 
     return (
       <>
-        <Nav logoURL={logoURL} />
+        <Nav/>
 
         {/* Hero Section */}
         <div className="bg-gray-800 relative w-full min-h-[65vh] md:min-h-[85vh] flex justify-center items-center">

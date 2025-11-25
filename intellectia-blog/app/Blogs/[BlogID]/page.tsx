@@ -6,13 +6,13 @@ import Footer from "@/components/Footer/Footer";
 import BlogContent from "@/components/BlogContent";
 
 async function fetchBlog(id: number) {
-  const baseURL = `https://strapi-backend-connect.onrender.com/api/posts/${id}?populate=*`;
+  const baseURL = `http://localhost:1337/api/posts/${id}?populate=*`;
   const response = await fetch(baseURL, { cache: "no-cache" });
   return await response.json();
 }
 
 async function getStrapiData(url: string) {
-  const baseURL = "https://strapi-backend-connect.onrender.com";
+  const baseURL = "http://localhost:1337";
   const response = await fetch(baseURL + url, { cache: "no-cache" });
   return await response.json();
 }
@@ -22,14 +22,14 @@ async function getStrapiData(url: string) {
 const Page = async ({ params }: any) => {
   const strapiData = await getStrapiData("/api/home-page?populate=*");
   const blog = await fetchBlog(params.BlogID);
-  const { Title, Logo } = strapiData.data.attributes;
-  const logoURL = "https://strapi-backend-connect.onrender.com" + Logo.data.attributes.url;
-  const { title, content, cover } = blog.data.attributes;
-  const imageUrl = "https://strapi-backend-connect.onrender.com" + cover?.data?.attributes?.url;
+  // const { Title, Logo } = strapiData.data.attributes;
+  // const logoURL = "http://localhost:1337" + Logo.data.attributes.url;
+  // const { title, content, cover } = blog.data.attributes;
+  // const imageUrl = "http://localhost:1337" + cover?.data?.attributes?.url;
 
   return (
     <>
-      <Nav logoURL={logoURL} />
+      <Nav />
       <br></br>
       <BlogContent strapiData={strapiData} blog={blog}/>
       <Footer/>

@@ -6,7 +6,13 @@ import { useRouter } from 'next/navigation';
 
 const CardNew = ({ BlogPosts }: any ) => {
   const router = useRouter();
-const imageUrl = "https://strapi-backend-connect.onrender.com" + BlogPosts.attributes.cover.data.attributes.url;
+// const imageUrl = "http://localhost:1337" + BlogPosts.attributes.cover.data.attributes.url;
+const imagePath =
+    BlogPosts?.attributes?.cover?.data?.attributes?.url ?? "/placeholder.png";
+
+  const imageUrl = imagePath.startsWith("http")
+    ? imagePath
+    : "http://localhost:1337" + imagePath;
 const title = BlogPosts.attributes.title;
 const desc = BlogPosts.attributes.ShortDesc;
   return (

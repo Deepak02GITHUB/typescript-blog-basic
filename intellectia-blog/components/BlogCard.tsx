@@ -6,7 +6,13 @@ import React from "react";
 const BlogCard = ({ BlogData }: any) => {
     const ID = BlogData.id;
     const { title, ShortDesc, cover } = BlogData.attributes;
-    const imageUrl = "https://strapi-backend-connect.onrender.com" + cover?.data?.attributes?.url;
+    // const imageUrl = "http://localhost:1337" + cover?.data?.attributes?.url;
+    const rawUrl = cover?.data?.attributes?.url || "";
+
+    // Cloudinary + Local Support
+    const imageUrl = rawUrl.startsWith("http")
+        ? rawUrl
+        : `http://localhost:1337${rawUrl}`;
     const imageAlt = cover?.data?.attributes?.alternativeText || title;
     console.log(ID)
     return (

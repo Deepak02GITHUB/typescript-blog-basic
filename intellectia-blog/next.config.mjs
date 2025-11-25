@@ -1,7 +1,20 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['localhost', 'strapi-backend-connect.onrender.com'],
+    remotePatterns: [
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "1337",
+        pathname: "/uploads/**",
+      },
+      {
+        protocol: "https",
+        hostname: "strapi-backend-connect.onrender.com",
+        port: "",
+        pathname: "/uploads/**",
+      }
+    ],
   },
 };
 

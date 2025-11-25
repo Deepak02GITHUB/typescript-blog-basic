@@ -80,7 +80,7 @@ const practiceAreaServices: { [key: string]: string[] } = {
 };
 
 async function getStrapiData(url: string) {
-  const baseURL = "https://strapi-backend-connect.onrender.com";
+  const baseURL = "http://localhost:1337";
   try {
     const response = await fetch(baseURL + url, { cache: 'no-cache' });
     const data = await response.json();
@@ -96,7 +96,7 @@ export default function PracticeAreaDetail() {
   const practiceId = params.practiceId as string;
   
   const [practiceArea, setPracticeArea] = useState<any>(null);
-  const [logoURL, setLogoURL] = useState<string>("");
+  // const [logoURL, setLogoURL] = useState<string>("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string>("");
   
@@ -144,9 +144,9 @@ export default function PracticeAreaDetail() {
           setError(errorMsg);
         }
         
-        if (homeData?.data?.attributes?.Logo) {
-          setLogoURL("https://strapi-backend-connect.onrender.com" + homeData.data.attributes.Logo.data.attributes.url);
-        }
+        // if (homeData?.data?.attributes?.Logo) {
+        //   setLogoURL("http://localhost:1337" + homeData.data.attributes.Logo.data.attributes.url);
+        // }
       } catch (error) {
         const errorMsg = `Error fetching data: ${error}`;
         console.error(errorMsg);
@@ -198,7 +198,7 @@ export default function PracticeAreaDetail() {
 
   const title = practiceArea.attributes.title;
   const description = practiceArea.attributes.Description;
-  const strapiImageUrl = "https://strapi-backend-connect.onrender.com" + practiceArea.attributes.PracticeAreaImage.data.attributes.url;
+  const strapiImageUrl = "http://localhost:1337" + practiceArea.attributes.PracticeAreaImage.data.attributes.url;
   
   // Get additional content based on practice area title
   const heroImage = practiceAreaImages[title] || practiceAreaImages["Corporate Law"];
@@ -207,7 +207,7 @@ export default function PracticeAreaDetail() {
 
   return (
     <>
-      <Nav logoURL={logoURL} />
+      <Nav/>
       
       {/* Hero Section */}
       <div className="relative h-64 sm:h-80 lg:h-96 overflow-hidden">
@@ -251,7 +251,8 @@ export default function PracticeAreaDetail() {
       </div> */}
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        {/* <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12"> */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
           
           {/* Main Content Column */}

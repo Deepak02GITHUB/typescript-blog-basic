@@ -7,7 +7,7 @@ import { ArrowDown } from "lucide-react";
 
 
 async function getStrapiData(url: string) {
-  const baseURL = "https://strapi-backend-connect.onrender.com";
+  const baseURL = "http://localhost:1337";
   try {
     const response = await fetch(baseURL + url, { cache: "no-cache" });
     const data = await response.json();
@@ -18,25 +18,25 @@ async function getStrapiData(url: string) {
 }
 
 export default function WorkwithUs() {
-  const [logoURL, setLogoURL] = useState("");
+  // const [logoURL, setLogoURL] = useState("");
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const strapiHomeData = await getStrapiData("/api/home-page?populate=*");
-      const { Logo } = strapiHomeData.data.attributes;
-      const logo = "https://strapi-backend-connect.onrender.com" + Logo.data.attributes.url;
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const strapiHomeData = await getStrapiData("/api/home-page?populate=*");
+  //     const { Logo } = strapiHomeData.data.attributes;
+  //     const logo = "http://localhost:1337" + Logo.data.attributes.url;
 
-      const img = new Image();
-      img.src = logo;
-      img.onload = () => setLogoURL(logo);
-    };
-    fetchData();
-  }, []);
+  //     const img = new Image();
+  //     img.src = logo;
+  //     img.onload = () => setLogoURL(logo);
+  //   };
+  //   fetchData();
+  // }, []);
 
   return (
     <div>
       
-        <Nav  logoURL={logoURL} />
+        <Nav/>
 
       {/* Second section */}
       <section className="min-h-[100vh] bg-[#F0FFFF] flex items-center justify-center">

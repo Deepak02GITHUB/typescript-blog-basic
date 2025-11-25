@@ -16,7 +16,7 @@
 // };
 
 // async function getStrapiData(url: string) {
-//   const baseURL = "https://strapi-backend-connect.onrender.com";
+//   const baseURL = "http://localhost:1337";
 //   try {
 //     const response = await fetch(baseURL + url, { cache: "no-cache" });
 //     const data = await response.json();
@@ -50,7 +50,7 @@
 //     const fetchData = async () => {
 //       const strapiHomeData = await getStrapiData("/api/home-page?populate=*");
 //       const { Logo } = strapiHomeData.data.attributes;
-//       setLogoURL("https://strapi-backend-connect.onrender.com" + Logo.data.attributes.url);
+//       setLogoURL("http://localhost:1337" + Logo.data.attributes.url);
 //     };
 //     fetchData();
 //   }, []);
@@ -367,7 +367,7 @@ import dynamic from "next/dynamic";
 const Map = dynamic(() => import("./ContactMap"), { ssr: false });
 
 async function getStrapiData(url: string) {
-  const baseURL = "https://strapi-backend-connect.onrender.com";
+  const baseURL = "http://localhost:1337";
   try {
     const response = await fetch(baseURL + url, { cache: "no-cache" });
     const data = await response.json();
@@ -378,7 +378,7 @@ async function getStrapiData(url: string) {
 }
 
 const ContactUs = () => {
-  const [logoURL, setLogoURL] = useState("");
+  // const [logoURL, setLogoURL] = useState("");
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState({ name: "", email: "", message: "" });
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -386,14 +386,14 @@ const ContactUs = () => {
   const [modalType, setModalType] = useState<"success" | "error">("success");
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const strapiHomeData = await getStrapiData("/api/home-page?populate=*");
-      const { Logo } = strapiHomeData.data.attributes;
-      setLogoURL("https://strapi-backend-connect.onrender.com" + Logo.data.attributes.url);
-    };
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const strapiHomeData = await getStrapiData("/api/home-page?populate=*");
+  //     const { Logo } = strapiHomeData.data.attributes;
+  //     setLogoURL("http://localhost:1337" + Logo.data.attributes.url);
+  //   };
+  //   fetchData();
+  // }, []);
 
   useEffect(() => {
     document.body.style.overflow = isModalOpen || loading ? "hidden" : "";
@@ -449,7 +449,7 @@ const ContactUs = () => {
 
   return (
     <>
-      <Nav logoURL={logoURL} />
+      <Nav/>
 
       {loading && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40 backdrop-blur-sm">

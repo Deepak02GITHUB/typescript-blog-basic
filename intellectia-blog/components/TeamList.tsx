@@ -1,65 +1,3 @@
-// "use client";
-
-// import Image from "next/image";
-// import Link from "next/link";
-
-// export interface TeamMember {
-//   id: number;
-//   attributes: {
-//     TeamMemberName: string;
-//     TeamMemberDesignation: string;
-//     TeamMemberSlug: string; 
-//     TeamMemberPhoto?: { data?: { attributes?: { url?: string } } };
-//   };
-// }
-
-// interface TeamListProps {
-//   teamMembers: TeamMember[];
-// }
-
-// const TeamList: React.FC<TeamListProps> = ({ teamMembers }) => {
-//   return (
-//     <>
-//       {/* Team Grid */}
-//       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-6 p-6">
-//         {teamMembers.map((member) => {
-//           const imageUrl = member.attributes.TeamMemberPhoto?.data?.attributes?.url
-//             ? `https://strapi-backend-connect.onrender.com${member.attributes.TeamMemberPhoto.data.attributes.url}`
-//             : "/placeholder.jpg";
-
-//           return (
-//             <Link
-//               key={member.id}
-//               href={`/AboutUs/our-team/${member.attributes.TeamMemberSlug}`} // ✅ use new slug
-//               className="bg-white rounded-sm shadow-md overflow-hidden no-underline hover:shadow-lg transition-transform duration-300 cursor-pointer hover:scale-105"
-//             >
-//               <div className="relative w-full h-[200px] md:h-[430px]">
-//                 <Image
-//                   src={imageUrl}
-//                   alt={`${member.attributes.TeamMemberName}'s photo`}
-//                   fill
-//                   sizes="(max-width: 768px) 100vw, 40vw"
-//                   className="object-cover object-[center_15%]"
-//                 />
-//               </div>
-//               <div className="p-2 text-center">
-//                 <h2 className="font-semibold text-lg font-dm-sans text-gray-800">
-//                   {member.attributes.TeamMemberName}
-//                 </h2>
-//                 <p className="text-gray-500 font-dm-sans">
-//                   {member.attributes.TeamMemberDesignation}
-//                 </p>
-//               </div>
-//             </Link>
-//           );
-//         })}
-//       </div>
-//     </>
-//   );
-// };
-
-// export default TeamList;
-
 "use client";
 
 import Image from "next/image";
@@ -95,9 +33,14 @@ const TeamList: React.FC<TeamListProps> = ({ teamMembers }) => {
       {/* Team Grid */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-6 p-6">
         {currentMembers.map((member) => {
-          const imageUrl = member.attributes.TeamMemberPhoto?.data?.attributes?.url
-            ? `https://strapi-backend-connect.onrender.com${member.attributes.TeamMemberPhoto.data.attributes.url}`
-            : "/placeholder.jpg";
+          const rawUrl = member.attributes.TeamMemberPhoto?.data?.attributes?.url;
+
+            const imageUrl = rawUrl
+              ? rawUrl.startsWith("http")
+                ? rawUrl                     // Cloudinary full URL
+                : `http://localhost:1337${rawUrl}` // Local file
+              : "/placeholder.jpg";
+
 
           return (
             <Link
