@@ -38,7 +38,7 @@ const TeamList: React.FC<TeamListProps> = ({ teamMembers }) => {
             const imageUrl = rawUrl
               ? rawUrl.startsWith("http")
                 ? rawUrl                     // Cloudinary full URL
-                : `http://localhost:1337${rawUrl}` // Local file
+                : `https://typescript-blog-basic.onrender.com${rawUrl}` // Local file
               : "/placeholder.jpg";
 
 

@@ -21,7 +21,7 @@
 
 // };
 // async function getStrapiData(url: string) {
-//   const baseURL = "http://localhost:1337";
+//   const baseURL = "https://typescript-blog-basic.onrender.com";
 //   try {
 //     const response = await fetch(baseURL + url, { cache: 'no-cache' });
 //     const data = await response.json();
@@ -46,7 +46,7 @@
 //   //const {strapiAboutUs}= await getStrapiData("/api/about-us");
 //   //console.log("hujioj",strapiAboutUs.data.attributes);
 //   const { Title, MissionLine, desc, Logo, Values} = strapiHomeData.data.attributes;
-//   const logoURL="http://localhost:1337"+Logo.data.attributes.url
+//   const logoURL="https://typescript-blog-basic.onrender.com"+Logo.data.attributes.url
 //   /*const teamMember = {
 //     name: 'John Doe',
 //     photo: '/frame-16@2x.png', // Make sure to use a valid image path
@@ -187,7 +187,7 @@
 // };
 
 // async function getStrapiData(url: string) {
-//   const baseURL = "http://localhost:1337";
+//   const baseURL = "https://typescript-blog-basic.onrender.com";
 //   try {
 //     const response = await fetch(baseURL + url, { cache: 'no-cache' });
 //     const data = await response.json();
@@ -205,7 +205,7 @@
 //   const TeamData = await getStrapiData("/api/team-members?populate=*");
 
 //   const { Title, MissionLine, desc, Logo, Values } = strapiHomeData.data.attributes;
-//   const logoURL = "http://localhost:1337" + Logo.data.attributes.url;
+//   const logoURL = "https://typescript-blog-basic.onrender.com" + Logo.data.attributes.url;
 
 //   return (
 //     <>
@@ -298,7 +298,7 @@
 // import Footer from "@/components/Footer/Footer";
 
 // async function getStrapiData(url: string) {
-//   const baseURL = "http://localhost:1337";
+//   const baseURL = "https://typescript-blog-basic.onrender.com";
 //   try {
 //     const response = await fetch(baseURL + url, { cache: "no-cache" });
 //     const data = await response.json();
@@ -316,7 +316,7 @@
 //   if (!strapiHomeData || !TeamData) return <div>Loading...</div>;
 
 //   const { desc, Logo } = strapiHomeData.data.attributes;
-//   const logoURL = "http://localhost:1337" + Logo.data.attributes.url;
+//   const logoURL = "https://typescript-blog-basic.onrender.com" + Logo.data.attributes.url;
 
 //   return (
 //     <>
@@ -378,7 +378,7 @@ import Link from "next/link";
 // Safe fetch wrapper
 async function getStrapiData(url: string) {
   try {
-    const res = await fetch("http://localhost:1337" + url, { cache: "no-cache" });
+    const res = await fetch("https://typescript-blog-basic.onrender.com" + url, { cache: "no-cache" });
     if (!res.ok) return null;
     const data = await res.json();
     return data;
@@ -398,14 +398,14 @@ const AboutUs = async () => {
   const { Title = "About Us", desc = "Description coming soon...", Logo = null, MissionLine = "" } = homeAttrs;
 
   // const logoURL = Logo?.data?.attributes?.url
-  //   ? "http://localhost:1337" + Logo.data.attributes.url
+  //   ? "https://typescript-blog-basic.onrender.com" + Logo.data.attributes.url
   //   : "/images/default-logo.png";
   const rawLogoUrl = Logo?.data?.attributes?.url;
 
 const logoURL = rawLogoUrl
   ? rawLogoUrl.startsWith("http")
     ? rawLogoUrl                              // ✔ Cloudinary URL
-    : "http://localhost:1337" + rawLogoUrl    // ✔ Local Strapi file
+    : "https://typescript-blog-basic.onrender.com" + rawLogoUrl    // ✔ Local Strapi file
   : "/images/default-logo.png";
 
 

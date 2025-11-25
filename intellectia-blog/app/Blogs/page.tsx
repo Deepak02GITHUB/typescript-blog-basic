@@ -7,7 +7,7 @@
 //   className?: string;
 // };
 // async function getStrapiData(url:string){
-//   const baseURL="http://localhost:1337";
+//   const baseURL="https://typescript-blog-basic.onrender.com";
 //   try{
 //     const response = await fetch(baseURL + url,{cache:'no-cache'});
 //     const data= await response.json();
@@ -22,7 +22,7 @@
 //   const strapiData = await getStrapiData("/api/home-page?populate=*");
 //   const strapiBlogData = await getStrapiData("/api/posts?populate=*");
 //   const {Title, MissionLine,Logo} = strapiData.data.attributes;
-//   const logoURL="http://localhost:1337"+Logo.data.attributes.url
+//   const logoURL="https://typescript-blog-basic.onrender.com"+Logo.data.attributes.url
 //   console.log(strapiBlogData.data.attributes)
 //   return (
 //     <>
@@ -58,7 +58,7 @@ import type { NextPage } from "next";
 // import { getStrapiMedia } from "@/lib/media";
 
 async function getStrapiData(url: string) {
-  const baseURL = "http://localhost:1337";
+  const baseURL = "https://typescript-blog-basic.onrender.com";
   const response = await fetch(baseURL + url, { cache: "no-cache" });
   return await response.json();
 }

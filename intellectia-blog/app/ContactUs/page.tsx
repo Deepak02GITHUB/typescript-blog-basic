@@ -16,7 +16,7 @@
 // };
 
 // async function getStrapiData(url: string) {
-//   const baseURL = "http://localhost:1337";
+//   const baseURL = "https://typescript-blog-basic.onrender.com";
 //   try {
 //     const response = await fetch(baseURL + url, { cache: "no-cache" });
 //     const data = await response.json();
@@ -50,7 +50,7 @@
 //     const fetchData = async () => {
 //       const strapiHomeData = await getStrapiData("/api/home-page?populate=*");
 //       const { Logo } = strapiHomeData.data.attributes;
-//       setLogoURL("http://localhost:1337" + Logo.data.attributes.url);
+//       setLogoURL("https://typescript-blog-basic.onrender.com" + Logo.data.attributes.url);
 //     };
 //     fetchData();
 //   }, []);
@@ -367,7 +367,7 @@ import dynamic from "next/dynamic";
 const Map = dynamic(() => import("./ContactMap"), { ssr: false });
 
 async function getStrapiData(url: string) {
-  const baseURL = "http://localhost:1337";
+  const baseURL = "https://typescript-blog-basic.onrender.com";
   try {
     const response = await fetch(baseURL + url, { cache: "no-cache" });
     const data = await response.json();
@@ -390,7 +390,7 @@ const ContactUs = () => {
   //   const fetchData = async () => {
   //     const strapiHomeData = await getStrapiData("/api/home-page?populate=*");
   //     const { Logo } = strapiHomeData.data.attributes;
-  //     setLogoURL("http://localhost:1337" + Logo.data.attributes.url);
+  //     setLogoURL("https://typescript-blog-basic.onrender.com" + Logo.data.attributes.url);
   //   };
   //   fetchData();
   // }, []);

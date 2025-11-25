@@ -92,10 +92,10 @@ const Page = async ({ strapiData, blog }: any) => {
   
   const { Title } = strapiData.data.attributes;
   const { title, content, cover } = blog.data.attributes;
-  // const imageUrl = "http://localhost:1337" + cover?.data?.attributes?.url;
+  // const imageUrl = "https://typescript-blog-basic.onrender.com" + cover?.data?.attributes?.url;
     const imageUrl = cover?.data?.attributes?.url?.startsWith("http")
       ? cover.data.attributes.url
-      : "http://localhost:1337" + cover?.data?.attributes?.url;
+      : "https://typescript-blog-basic.onrender.com" + cover?.data?.attributes?.url;
 
   return (
     <>

@@ -3,14 +3,14 @@ import Image from 'next/image';
 import React from "react";
 const BlogCardImg = ({ BlogData }: any) => {
     let ID = BlogData.id;
-    // const imageUrl = "http://localhost:1337" + BlogData.attributes.cover.data.attributes.url;
+    // const imageUrl = "https://typescript-blog-basic.onrender.com" + BlogData.attributes.cover.data.attributes.url;
     const raw = BlogData?.attributes?.cover?.data?.attributes?.url;
 
         // Cloudinary + Localhost Ready
         const imageUrl = raw
             ? raw.startsWith("http")
             ? raw
-            : "http://localhost:1337" + raw
+            : "https://typescript-blog-basic.onrender.com" + raw
             : "/placeholder.png";
     console.log(ID)
     return (

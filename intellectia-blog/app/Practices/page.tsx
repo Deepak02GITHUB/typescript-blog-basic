@@ -15,7 +15,7 @@
 //   };
 
 //     async function getStrapiData(url: string) {
-//         const baseURL = "http://localhost:1337";
+//         const baseURL = "https://typescript-blog-basic.onrender.com";
 //         try {
 //           const response = await fetch(baseURL + url, { cache: 'no-cache' });
 //           const data = await response.json();
@@ -33,7 +33,7 @@
 //   //const {strapiAboutUs}= await getStrapiData("/api/about-us");
 //   console.log("hujioj",strapiFAQs.data );
 //   const { Title, MissionLine, desc,Logo} = strapiHomeData.data.attributes;
-//   const logoURL="http://localhost:1337"+Logo.data.attributes.url
+//   const logoURL="https://typescript-blog-basic.onrender.com"+Logo.data.attributes.url
 
 //     return (  
 //         <>
@@ -71,7 +71,7 @@ import { NextPage } from "next";
 
 export const dynamic = 'force-dynamic';
 
-const STRAPI_BASE = "http://localhost:1337";
+const STRAPI_BASE = "https://typescript-blog-basic.onrender.com";
 
 // ✅ Safe fetch helper
 async function getStrapiData(endpoint: string) {

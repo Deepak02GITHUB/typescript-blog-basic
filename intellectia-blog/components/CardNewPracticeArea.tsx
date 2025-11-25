@@ -3,7 +3,7 @@
 // import Link from 'next/link';
 
 // const CardNew = ({ BlogPosts }: any ) => {
-// const imageUrl = "http://localhost:1337" + BlogPosts.attributes.PracticeAreaImage.data.attributes.url;
+// const imageUrl = "https://typescript-blog-basic.onrender.com" + BlogPosts.attributes.PracticeAreaImage.data.attributes.url;
 // const title = BlogPosts.attributes.title;
 // const desc = BlogPosts.attributes.Description;
 //   return (
@@ -129,7 +129,7 @@
 
 //   const imageUrl = imagePath.startsWith("http")
 //     ? imagePath
-//     : "http://localhost:1337" + imagePath;
+//     : "https://typescript-blog-basic.onrender.com" + imagePath;
 
 //   const title = BlogPosts.attributes.title;
 //   const desc = BlogPosts.attributes.Description;
@@ -198,13 +198,13 @@ const CardNew = ({ BlogPosts }: any) => {
     const imageUrl = rawImage
       ? rawImage.startsWith("http")
         ? rawImage // Cloudinary image
-        : "http://localhost:1337" + rawImage // Local dev image
+        : "https://typescript-blog-basic.onrender.com" + rawImage // Local dev image
       : "/placeholder.png";
 
 
   // const imageUrl = imagePath.startsWith("http")
   //   ? imagePath
-  //   : "http://localhost:1337" + imagePath;
+  //   : "https://typescript-blog-basic.onrender.com" + imagePath;
 
   const title = BlogPosts.attributes.title;
   const desc = BlogPosts.attributes.Description;

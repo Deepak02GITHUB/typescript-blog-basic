@@ -7,7 +7,7 @@ import { ArrowDown } from "lucide-react";
 
 
 async function getStrapiData(url: string) {
-  const baseURL = "http://localhost:1337";
+  const baseURL = "https://typescript-blog-basic.onrender.com";
   try {
     const response = await fetch(baseURL + url, { cache: "no-cache" });
     const data = await response.json();
@@ -24,7 +24,7 @@ export default function WorkwithUs() {
   //   const fetchData = async () => {
   //     const strapiHomeData = await getStrapiData("/api/home-page?populate=*");
   //     const { Logo } = strapiHomeData.data.attributes;
-  //     const logo = "http://localhost:1337" + Logo.data.attributes.url;
+  //     const logo = "https://typescript-blog-basic.onrender.com" + Logo.data.attributes.url;
 
   //     const img = new Image();
   //     img.src = logo;

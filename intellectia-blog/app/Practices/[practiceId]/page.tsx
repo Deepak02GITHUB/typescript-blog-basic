@@ -80,7 +80,7 @@ const practiceAreaServices: { [key: string]: string[] } = {
 };
 
 async function getStrapiData(url: string) {
-  const baseURL = "http://localhost:1337";
+  const baseURL = "https://typescript-blog-basic.onrender.com";
   try {
     const response = await fetch(baseURL + url, { cache: 'no-cache' });
     const data = await response.json();
@@ -145,7 +145,7 @@ export default function PracticeAreaDetail() {
         }
         
         // if (homeData?.data?.attributes?.Logo) {
-        //   setLogoURL("http://localhost:1337" + homeData.data.attributes.Logo.data.attributes.url);
+        //   setLogoURL("https://typescript-blog-basic.onrender.com" + homeData.data.attributes.Logo.data.attributes.url);
         // }
       } catch (error) {
         const errorMsg = `Error fetching data: ${error}`;
@@ -198,7 +198,7 @@ export default function PracticeAreaDetail() {
 
   const title = practiceArea.attributes.title;
   const description = practiceArea.attributes.Description;
-  const strapiImageUrl = "http://localhost:1337" + practiceArea.attributes.PracticeAreaImage.data.attributes.url;
+  const strapiImageUrl = "https://typescript-blog-basic.onrender.com" + practiceArea.attributes.PracticeAreaImage.data.attributes.url;
   
   // Get additional content based on practice area title
   const heroImage = practiceAreaImages[title] || practiceAreaImages["Corporate Law"];
