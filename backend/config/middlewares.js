@@ -4,8 +4,8 @@ module.exports = [
     name: 'strapi::cors',
     config: {
       origin: [
-        // 'https://typescript-blog-jet.vercel.app', // your frontend
-        'http://localhost:3000',                  // local dev
+        'https://typescript-blog-basic-gray.vercel.app/',
+        'http://localhost:3000',
       ],
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
       headers: ['Content-Type', 'Authorization'],
