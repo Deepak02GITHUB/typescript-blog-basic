@@ -392,6 +392,7 @@ const AboutUs = async () => {
   // Fetch home and team data
   const strapiHomeData = await getStrapiData("/api/home-page?populate=*");
   const strapiTeamData = await getStrapiData("/api/team-members?populate=*");
+  
 
   // Safe destructuring with defaults
   const homeAttrs = strapiHomeData?.data?.attributes || {};
@@ -410,6 +411,11 @@ const logoURL = rawLogoUrl
 
 
   const teamMembers = strapiTeamData?.data || [];
+  // Sort team members in ascending order by name
+      teamMembers.sort((a: any, b: any) =>
+        a.attributes.TeamMemberName.localeCompare(b.attributes.TeamMemberName)
+      );
+
 
   return (
     <>
