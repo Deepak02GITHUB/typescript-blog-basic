@@ -374,6 +374,7 @@ import Divider from "@/components/divider";
 import Footer from "@/components/Footer/Footer";
 import TeamList from "@/components/TeamList";
 import Link from "next/link";
+import type { TeamMember } from "@/components/TeamList";
 
 // Safe fetch wrapper
 async function getStrapiData(url: string) {
@@ -410,12 +411,12 @@ const logoURL = rawLogoUrl
   : "/images/default-logo.png";
 
 
-  const teamMembers = strapiTeamData?.data || [];
-  // Sort team members in ascending order by name
-      teamMembers.sort((a: any, b: any) =>
-        a.attributes.TeamMemberName.localeCompare(b.attributes.TeamMemberName)
-      );
+  // const teamMembers = strapiTeamData?.data || [];
+  // Fetch…
+        let teamMembers: TeamMember[] = strapiTeamData?.data || [];
 
+        // Sort team members by ID ascending
+        teamMembers.sort((a: TeamMember, b: TeamMember) => a.id - b.id);
 
   return (
     <>
